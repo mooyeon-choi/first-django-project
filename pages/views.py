@@ -10,11 +10,11 @@ import datetime
 def index(request):
 # 2. >> 로직 작성 <<
     # 3. 해당하는 템플릿 반환
-    return render(request, 'index.html')
+    return render(request, 'pages/index.html')
 
 def hello(request, name):
     context = {'name': name}
-    return render(request, 'hello.html', context)
+    return render(request, 'pages/hello.html', context)
 
 def lotto(request):
     print(request)
@@ -28,7 +28,7 @@ def lotto(request):
     # render 함수의 필수 인자 : request, template 파일
     # 변수를 넘겨주고 싶으면 3번째 인자로 dictionary를 넘겨준다.
     # Django에서 활용하는 템플릿 언어는 Django Template language(DTL)!
-    return render(request, 'lotto.html', context)
+    return render(request, 'pages/lotto.html', context)
 
 def dinner(request):
     menus = ['롯데리아', '편도', '맘스터치', '응급실떡볶이', '노은각', '피자', '치킨']
@@ -41,7 +41,7 @@ def dinner(request):
         'datetime_now': datetime.datetime.now(),
         'google_link': 'https://www.google.com'
         }
-    return render(request, 'dinner.html', context)
+    return render(request, 'pages/dinner.html', context)
 
 def cube(request, number):
     num = number ** 3
@@ -50,14 +50,14 @@ def cube(request, number):
         'num': num,
         'student': {'지수': '지수!', '태수': '태수!'}
     }
-    return render(request, 'cube.html', context)
+    return render(request, 'pages/cube.html', context)
 
 def about(request, name, age):
     context = {
         'name': name,
         'age': age
     }
-    return render(request, 'about.html', context)
+    return render(request, 'pages/about.html', context)
 
 def info(request):
     teacher = 'NAME'
@@ -66,7 +66,7 @@ def info(request):
         'teacher': teacher,
         'student': student
     }
-    return render(request, 'info.html', context)
+    return render(request, 'pages/info.html', context)
 
 def isitgwangbok(request):
     # now = datetime.date.now()
@@ -77,10 +77,10 @@ def isitgwangbok(request):
     # context = {
     #     'result': result
     # }
-    return render(request, 'isitgwangbok.html')
+    return render(request, 'pages/isitgwangbok.html')
 
 def ping(request):
-    return render(request, 'ping.html')
+    return render(request, 'pages/ping.html')
 
 def pong(request):
     # 사용자가 넘겨주는 값 받아오기
@@ -90,10 +90,10 @@ def pong(request):
     context = {
         'data': data
     }
-    return render(request, 'pong.html', context)
+    return render(request, 'pages/pong.html', context)
 
 def signup(request):
-    return render(request, 'signup.html')
+    return render(request, 'pages/signup.html')
 
 def signup_result(request):
     username = request.POST.get('username')
@@ -105,4 +105,4 @@ def signup_result(request):
         'username': username,
         'result': result
     }
-    return render(request, 'signup_result.html', context)
+    return render(request, 'pages/signup_result.html', context)
