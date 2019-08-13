@@ -30,4 +30,12 @@ urlpatterns = [
     path('hello/<str:name>/', views.hello),
     path('lotto/', views.lotto),
     path('dinner/', views.dinner),
+    path('cube/<int:number>/', views.cube),
+    path('about/<str:name>/<int:age>/', views.about),
+    path('info/', views.info),
+    path('isitgwangbok/', views.isitgwangbok),
+    path('ping/', views.ping),
+    path('pong/', views.pong),
+    path('signup/', views.signup),
+    path('signup_result/', views.signup_result),
 ]

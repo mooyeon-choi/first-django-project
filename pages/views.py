@@ -2,6 +2,7 @@
 import random
 import datetime
 from django.shortcuts import render
+import datetime
 
 # Create your views here.
 
@@ -41,3 +42,67 @@ def dinner(request):
         'google_link': 'https://www.google.com'
         }
     return render(request, 'dinner.html', context)
+
+def cube(request, number):
+    num = number ** 3
+    context = {
+        'number': number,
+        'num': num,
+        'student': {'지수': '지수!', '태수': '태수!'}
+    }
+    return render(request, 'cube.html', context)
+
+def about(request, name, age):
+    context = {
+        'name': name,
+        'age': age
+    }
+    return render(request, 'about.html', context)
+
+def info(request):
+    teacher = 'NAME'
+    student = ['홍길동', '김길동', '박길동']
+    context = {
+        'teacher': teacher,
+        'student': student
+    }
+    return render(request, 'info.html', context)
+
+def isitgwangbok(request):
+    # now = datetime.date.now()
+    # if now.month == 8 and now.day == 15:
+    #     result = True
+    # else:
+    #     result = False
+    # context = {
+    #     'result': result
+    # }
+    return render(request, 'isitgwangbok.html')
+
+def ping(request):
+    return render(request, 'ping.html')
+
+def pong(request):
+    # 사용자가 넘겨주는 값 받아오기
+    print(request.GET) 
+    # QueryDict {'data': '안녕하세요'}
+    data = request.GET.get('data')
+    context = {
+        'data': data
+    }
+    return render(request, 'pong.html', context)
+
+def signup(request):
+    return render(request, 'signup.html')
+
+def signup_result(request):
+    username = request.POST.get('username')
+    if request.POST.get('password') == request.POST.get('password_confirmation'):
+        result = True
+    else:
+        result = False
+    context = {
+        'username': username,
+        'result': result
+    }
+    return render(request, 'signup_result.html', context)
